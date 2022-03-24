@@ -1,0 +1,46 @@
+.footer{
+  margin-top: 120px;
+  padding-bottom: 63px;
+}
+
+.social{
+  @include list-style;
+  margin-bottom: 36px;
+}
+
+.social__item{
+  &:not(:last-child){
+    margin-right: 48px;
+  }
+}
+
+.social__link{
+  color: #111827;
+  font-size: 25px;
+}
+
+.policy{
+  @include list-style;
+  margin-bottom: 36px;
+}
+
+.policy__item{
+  &:not(:last-child){
+    margin-right: 48px;
+  }
+}
+
+.policy__link{
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: #111827;
+  text-decoration: none;
+}
+
+.footer-text{
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: #6b7280;
+}

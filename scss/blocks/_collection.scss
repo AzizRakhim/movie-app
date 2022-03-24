@@ -1,0 +1,185 @@
+.collection__list{
+  @include list-style;
+  margin-bottom: 50px;
+  transition: all 0.3s ease;
+}
+
+.collection__item{
+  padding: 0 20px;
+}
+
+.collection__item-padding{
+  height: 100%;
+}
+
+.collection__img-holder{
+  margin-bottom: 12px;
+  position: relative;
+
+  img{
+    width: 100%;
+    height: 100%;
+    max-height: 159px;
+  }
+}
+
+.collection__year{
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9ca3af;
+  margin-bottom: 12px;
+}
+
+.collection__title{
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.collection__rate-holder{
+  margin-bottom: 12px;
+}
+
+.collection__imdb-container{
+  img{
+    width: 35px;
+    height: 17px;
+    margin-right: 10px;
+  }
+}
+
+.collection__imdb-rate{
+  display: inline-block;
+  font-size: 12px;
+  line-height: 12px;
+  color: #111827;
+}
+
+.collection__rate{
+  img{
+    width: 16px;
+    height: 17px;
+    margin-right: 10px;
+  }
+}
+
+.collection__rate-num{
+  display: inline-block;
+  font-size: 12px;
+  line-height: 12px;
+  color: #111827;
+}
+
+.collection__category{
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9ca3af;
+  margin-bottom: 24px;
+  text-overflow: ellipsis !important;
+}
+
+.collection__heart-holder{
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.collection__type{
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  color: #111827;
+  background: rgba(243, 244, 246, 0.5);
+  backdrop-filter: blur(2px);
+  border-radius: 12px;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+
+.collection__heart{
+  background: rgba(243, 244, 246, 0.5);
+  backdrop-filter: blur(2px);
+  border-radius: 50%;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  .bx{
+    color: #fff;
+    margin-top: 1px;
+  }
+}
+
+.video-title{
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: #111827;
+}
+
+.actor{
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: #111827;
+}
+
+.cast {
+  img{
+    max-height: 100%;
+  }
+}
+
+.collection__more{
+  text-decoration: none;
+  cursor: pointer;
+  
+  &:hover{
+    color: #be123c;
+  }
+}
+
+.modal-dialog{
+  max-width: 1000px;
+}
+
+.prev-btn,
+.next-btn{
+  border: none;
+  background-color: transparent;
+  color: #6b7280;
+
+  .bx{
+    font-size: 30px;
+  }
+}
+
+.prev-btn{
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+}
+
+.next-btn{
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+}
+
+.carousel-holder{
+  overflow: hidden;
+}
