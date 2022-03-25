@@ -602,8 +602,7 @@ body {
 
 .collection__img-holder img {
   width: 100%;
-  height: 100%;
-  max-height: 159px;
+  height: 159px;
 }
 
 .collection__year {
@@ -730,7 +729,7 @@ body {
 }
 
 .cast img {
-  max-height: 100%;
+  height: 100%;
 }
 
 .collection__more {
