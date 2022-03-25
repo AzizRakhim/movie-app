@@ -383,7 +383,7 @@ body {
 .header {
   position: absolute;
   top: 0;
-  z-index: 1;
+  z-index: 10000;
   width: 100%;
   padding-top: 15px;
 }
@@ -529,6 +529,48 @@ body {
   margin-right: 8px;
   border: none;
   background-color: transparent;
+}
+
+.carousel-indicators {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  top: 0%;
+  right: -130px;
+}
+
+.carousel-indicators button {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  color: #9ca3af;
+  text-align: right;
+  opacity: 1;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 0;
+}
+
+.carousel-indicators .active {
+  color: #fff;
+  font-size: 18px;
+}
+
+.carousel-indicators .active::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  background: #fff;
+  border-radius: 6px;
+  margin-right: 6px;
+  position: relative;
+  top: -4px;
 }
 
 .footer {
@@ -775,5 +817,19 @@ body {
 
 .carousel-holder {
   overflow: hidden;
+}
+
+.offcanvas-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.offcanvas-list li {
+  width: 100%;
+}
+
+.red {
+  color: red;
 }
 /*# sourceMappingURL=main.css.map */

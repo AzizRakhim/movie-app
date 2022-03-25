@@ -11,7 +11,7 @@
 .header{
   position: absolute;
   top: 0;
-  z-index: 1;
+  z-index: 10000;
   width: 100%;
   padding-top: 15px;
 }
@@ -144,3 +144,39 @@
   background-color: transparent;
 }
 
+.carousel-indicators{
+  flex-direction: column;
+  align-items: end;
+  top: 0%;
+  right: -130px;
+
+  button{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: #9ca3af;
+    text-align: right;
+    opacity: 1;
+  }
+}
+
+.carousel-indicators [data-bs-target]{
+  width: 0;
+}
+
+.carousel-indicators .active{
+  color: #fff;
+  font-size: 18px;
+
+  &::before{
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 3px;
+    background: #fff;
+    border-radius: 6px;
+    margin-right: 6px;
+    position: relative;
+    top: -4px;
+  }
+}

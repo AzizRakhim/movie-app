@@ -182,3 +182,15 @@
 .carousel-holder{
   overflow: hidden;
 }
+
+.offcanvas-list{
+  @include list-style;
+
+  li{
+    width: 100%;
+  }
+}
+
+.red{
+  color: red;
+}

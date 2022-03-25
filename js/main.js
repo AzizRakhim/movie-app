@@ -1,6 +1,7 @@
 const elFeatureList = document.querySelector(".feature");
 const elNewList = document.querySelector(".new");
 const elDocumentaryList = document.querySelector(".documentary");
+const elOffcanvas = document.querySelector(".offcanvas-list");
 
 let elRatedMovies = [];
 let elNewMovies = [];
@@ -56,7 +57,7 @@ function showIt(elArr, num) {
                 </div>
               </div>
             </div>
-            <span class="collection__heart">
+            <span class="collection__heart" onclick="wishlist('${el.imdbId}')">
               <i class='bx bxs-heart'></i>
             </span>
           </div>
@@ -109,7 +110,6 @@ function showIt(elArr, num) {
 const elLength = elFeatureList.querySelectorAll("li");
 const elLengthTwo = elNewList.querySelectorAll("li");
 const elLengthThree = elDocumentaryList.querySelectorAll("li");
-console.log(elLengthThree);
 
 let idx = 0;
 
@@ -156,3 +156,69 @@ elPrev.forEach((el, index) => {
     changeImage(index);
   });
 });
+
+let hearts = document.querySelectorAll(".collection__heart");
+
+hearts.forEach((el) => {
+  el.addEventListener("click", (e) => {
+    e.target.style.color = "red";
+  });
+});
+
+
+function wishlist(smth){
+  movies.forEach((el) => {
+    if(smth == el.imdbId){
+      let elItem = document.createElement("li");
+      elItem.className = "collection__item col-3";
+      elItem.innerHTML = `
+        <div class="collection__item-padding">
+        <div class="collection__img-holder">
+          <img class="featured-img" src="${el.youtubePosterMax}"
+          alt="movie">
+          <div class="collection__heart-holder">
+            <span class="collection__heart me-auto">
+              <i class='bx bxs-heart'></i>
+            </span>
+          </div>
+        </div>
+        <div class="collection__info">
+          <div class="collection__year">
+            ${el.language},
+            <span class="collection__year-num">
+              ${el.year}
+            </span>
+          </div>
+          <h2 class="collection__title">
+            ${el.title}
+          </h2>
+          <div class="collection__rate-holder">
+            <div class="collection__imdb d-flex justify-content-between align-items-center">
+              <div class="collection__imdb-container d-flex align-items-center">
+                <img src="images/imbd.svg" alt="imdb">
+                <span class="collection__imdb-rate">
+                  86.0 / 100
+                </span>
+              </div>
+              <div class="collection__rate d-flex align-items-center">
+                <img src="images/tomato.svg" alt="tomato">
+                  <span class="collection__rate-num">
+                    ${el.imdbRating}
+                  </span>
+                  </div>
+                </div>
+              </div>
+              <div class="collection__category">
+                ${el.categories.join(", ")}
+              </div>
+            </div>
+          </div>  
+      `;
+      
+      elOffcanvas.appendChild(elItem);
+    }
+  });
+}
+
+
+
