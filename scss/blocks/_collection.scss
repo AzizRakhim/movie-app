@@ -194,3 +194,31 @@
 .red{
   color: red;
 }
+
+#find-it{
+  padding-top: 50px;
+
+  input{
+    padding: 10px;
+    margin-right: 10px;
+  }
+}
+
+.extended-search{
+  margin-bottom: 50px;
+  padding-left: 20px;
+}
+
+.click-me{
+  padding: 10px 40px;
+  border: 2px solid #be123c;
+  border-radius: 6px;
+  background-color: #be123c;
+  color: #fff;
+}
+
+.find-list{
+  @include list-style;
+  display: flex;
+  flex-wrap: wrap;
+}

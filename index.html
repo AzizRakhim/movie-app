@@ -23,20 +23,24 @@
                         <img src="images/logo.png" alt="logo">
                     </a>
                 </div>
-                <div class="hero__search-box d-flex align-items-center">
-                    <input class="search-box" type="text" id="search" placeholder="What do you want to watch?" required>
-                    <i class='bx bx-search'></i>
-                </div>
+                <form class="search-form">
+                    <div class="hero__search-box d-flex align-items-center">
+                        <input class="search-box" type="text" id="search" placeholder="What do you want to watch?" required></i>
+                        <ul class="search-list">
+    
+                        </ul>
+                    </div>
+                </form>
                 <div class="hero__sign d-flex align-items-center">
                     <button class="sign-in">
                         Sign in
                     </button>
                     <button class="hero__menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                        <img src="images/manu.svg" alt="manu">
+                        <i class='bx bxs-heart'></i>
                     </button>
                     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                         <div class="offcanvas-header">
-                          <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+                          <h5 id="offcanvasRightLabel">My Wishlist</h5>
                           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
@@ -202,11 +206,38 @@
         </div>
     </section>
 
+    <section id="find-it">
+        <div class="container">
+            <h2 class="collection__genre mb-4">
+                Search here...
+            </h2>
+            <form class="extended-search">
+                <input type="text" name="movie-name" id="movie-name" placeholder="Name" required>
+                <input class="category-input" type="text" list="date" name="category" placeholder="Category">
+        
+                <datalist id="date">
+                    <option>All</option>
+                </datalist>
+        
+                <input type="number" name="start-year" id="start-year" value="2005" required>
+                <input type="number" name="end-year" id="end-year" value="2018" required>
+                <button class="click-me" type="submit">
+                    Search
+                </button>
+            </form>
+            <div class="find-holder">
+                <ul class="find-list">
+            
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <section id="collection" class="collection">
         <div class="container position-relative">
             <div class="collection__entry d-flex align-items-center justify-content-between">
                 <h2 class="collection__genre">
-                    Top Rated Movie
+                    Top Rated Movies
                 </h2>
                 <a class="collection__more d-flex align-items-center" href="topRated.html">
                     See more
@@ -215,7 +246,7 @@
             </div>
             <div class="carousel-holder">
                 <ul class="collection__list feature d-flex">
-                               
+                            
                 </ul>
             </div>
             <div class="button-holder">

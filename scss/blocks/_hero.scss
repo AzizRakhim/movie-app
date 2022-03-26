@@ -63,6 +63,14 @@
   padding: 6px;
   border: none;
   background: #be123c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .bx{
+    font-size: 20px;
+    color: #fff;
+  }
 }
 
 .carousel-item{
@@ -178,5 +186,39 @@
     margin-right: 6px;
     position: relative;
     top: -4px;
+  }
+}
+
+.search-list{
+  width: 80vw;
+  height: 80vh;
+  position: absolute;
+  top: -80vh;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: #fff;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  @include list-style;
+  padding: 20px 0;
+  padding-top: 70px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: auto;
+}
+
+.x-btn{
+  border: none;
+  background-color: transparent;
+  padding-top: 0;
+  font-size: 20px;
+  position: fixed;
+  top: 20px;
+  right: 20px; 
+
+  .bx{
+    font-size: 30px;
+    color: #be123c;
   }
 }

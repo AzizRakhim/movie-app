@@ -453,6 +453,20 @@ body {
   padding: 6px;
   border: none;
   background: #be123c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hero__menu .bx {
+  font-size: 20px;
+  color: #fff;
 }
 
 .carousel-item img {
@@ -571,6 +585,48 @@ body {
   margin-right: 6px;
   position: relative;
   top: -4px;
+}
+
+.search-list {
+  width: 80vw;
+  height: 80vh;
+  position: absolute;
+  top: -80vh;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  background-color: #fff;
+  border-radius: 16px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding: 20px 0;
+  padding-top: 70px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  overflow-x: auto;
+}
+
+.x-btn {
+  border: none;
+  background-color: transparent;
+  padding-top: 0;
+  font-size: 20px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.x-btn .bx {
+  font-size: 30px;
+  color: #be123c;
 }
 
 .footer {
@@ -831,5 +887,38 @@ body {
 
 .red {
   color: red;
+}
+
+#find-it {
+  padding-top: 50px;
+}
+
+#find-it input {
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.extended-search {
+  margin-bottom: 50px;
+  padding-left: 20px;
+}
+
+.click-me {
+  padding: 10px 40px;
+  border: 2px solid #be123c;
+  border-radius: 6px;
+  background-color: #be123c;
+  color: #fff;
+}
+
+.find-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 /*# sourceMappingURL=main.css.map */
