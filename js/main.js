@@ -336,22 +336,48 @@ elExtendedForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   let extendedSearch = elExtendedSearch.value.toLowerCase();
-  let category = elCategory.value.toLowerCase();
+  let category = elCategory.value;
   let startYear = elStartYear.value;
   let endYear = elEndYear.value;
 
   let newCollection = [];
   
-  movies.forEach((el) => {
+  movies.forEach((el, index) => {
     elFindList.innerHTML = "";
     let elTitle = el.title.toLowerCase();
     if(elTitle.indexOf(extendedSearch) != -1 && el.year >= startYear && el.year <= endYear){
-      newCollection.push(el);
+      el.categories.forEach((item) => {
+        if(category == item){
+          newCollection.push(el);
+        }
+      })
     }
   });
   showIt(newCollection, 4);
 });
 
+let filterPlease = [];
+movies.forEach((el) => {
+  el.categories.forEach((item) => {
+    filterPlease.push(item);
+  });
+})
+
+let arrTwo = filterPlease;
+let topArr = [];
+
+arrTwo.forEach((item) => {
+  if(arrTwo != "") topArr.push(arrTwo[0]);
+  arrTwo = arrTwo.filter((el) => {
+    return arrTwo[0] != el;
+  })
+})
+
+topArr.forEach((el) => {
+  let elOption = document.createElement("option");
+  elOption.innerText = el;
+  elDatalist.appendChild(elOption);
+})
 
 
 
