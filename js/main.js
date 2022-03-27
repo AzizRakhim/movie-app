@@ -77,7 +77,9 @@ function showIt(elArr, num) {
           <div class="collection__rate-holder">
             <div class="collection__imdb d-flex justify-content-between align-items-center">
               <div class="collection__imdb-container d-flex align-items-center">
-                <img src="images/imbd.svg" alt="imdb">
+                <a target="_blank" href="https://www.imdb.com/title/${el.imdbId}/">
+                  <img src="images/imbd.svg" alt="imdb">
+                </a>
                 <span class="collection__imdb-rate">
                   86.0 / 100
                 </span>
@@ -166,8 +168,8 @@ elPrev.forEach((el, index) => {
 let hearts = document.querySelectorAll(".collection__heart");
 
 hearts.forEach((el) => {
-  el.addEventListener("click", (e) => {
-    e.target.style.color = "red";
+  el.addEventListener("click", () => {
+    el.style.background = "#be123c";
   });
 });
 
@@ -184,7 +186,7 @@ function wishlist(smth){
           <img class="featured-img" src="${el.youtubePosterMax}"
           alt="movie">
           <div class="collection__heart-holder">
-            <span class="collection__heart me-auto">
+            <span class="collection__heart red me-auto">
               <i class='bx bxs-heart'></i>
             </span>
           </div>
@@ -202,7 +204,9 @@ function wishlist(smth){
           <div class="collection__rate-holder">
             <div class="collection__imdb d-flex justify-content-between align-items-center">
               <div class="collection__imdb-container d-flex align-items-center">
-                <img src="images/imbd.svg" alt="imdb">
+                <a target="_blank" href="https://www.imdb.com/title/${el.imdbId}/">
+                  <img src="images/imbd.svg" alt="imdb">
+                </a>
                 <span class="collection__imdb-rate">
                   86.0 / 100
                 </span>
@@ -221,12 +225,11 @@ function wishlist(smth){
             </div>
           </div>  
       `;
-      
+
       elOffcanvas.appendChild(elItem);
     }
   });
 };
-
 
 const elSearchList = document.querySelector(".search-list");
 const elForm = document.querySelector(".search-form");
@@ -282,7 +285,7 @@ elForm.addEventListener("submit", (e) => {
                 </div>
               </div>
             </div>
-            <span class="collection__heart" onclick="wishlist('${el.imdbId}')">
+            <span class="collection__heart red-it" onclick="wishlist('${el.imdbId}')">
               <i class='bx bxs-heart'></i>
             </span>
           </div>
@@ -300,7 +303,9 @@ elForm.addEventListener("submit", (e) => {
           <div class="collection__rate-holder">
             <div class="collection__imdb d-flex justify-content-between align-items-center">
               <div class="collection__imdb-container d-flex align-items-center">
-                <img src="images/imbd.svg" alt="imdb">
+                <a target="_blank" href="https://www.imdb.com/title/${el.imdbId}/">
+                  <img src="images/imbd.svg" alt="imdb">
+                </a>
                 <span class="collection__imdb-rate">
                   86.0 / 100
                 </span>
@@ -389,7 +394,6 @@ topArr.forEach((el) => {
   elOption.innerText = el;
   elDatalist.appendChild(elOption);
 })
-
 
 
 

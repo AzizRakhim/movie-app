@@ -371,7 +371,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -462,6 +462,24 @@ body {
   border: none;
   background-color: transparent;
   margin-right: 27px;
+  position: relative;
+}
+
+.sign-in::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  display: inline-block;
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.sign-in:hover::after {
+  width: 100%;
 }
 
 .hero__menu {
@@ -480,11 +498,17 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .hero__menu .bx {
   font-size: 20px;
   color: #fff;
+}
+
+.hero__menu:hover {
+  background-color: #ff0040;
 }
 
 .carousel-item {
@@ -527,6 +551,9 @@ body {
   line-height: 56px;
   color: #fff;
   margin-bottom: 16px;
+  width: 404px;
+  position: relative;
+  z-index: 10;
 }
 
 .hero__slide-text {
@@ -536,9 +563,12 @@ body {
   color: #fff;
   width: 302px;
   margin-bottom: 16px;
+  position: relative;
+  z-index: 10;
 }
 
 .watch-btn {
+  width: 170px;
   background: #be123c;
   border-radius: 6px;
   border: none;
@@ -548,11 +578,23 @@ body {
   line-height: 24px;
   text-transform: uppercase;
   color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .watch-btn .bx {
   margin-right: 8px;
   font-size: 16px;
+}
+
+.watch-btn:hover {
+  color: #fff;
+  background-color: transparent;
+  outline: 1px solid #fff;
 }
 
 #collection {
@@ -597,6 +639,12 @@ body {
   line-height: 14px;
   color: #9ca3af;
   text-align: right;
+  opacity: 1;
+}
+
+.carousel-indicators button:hover {
+  color: #fff;
+  font-size: 18px;
   opacity: 1;
 }
 
@@ -698,6 +746,24 @@ body {
 .social__link {
   color: #111827;
   font-size: 25px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.facebook:hover {
+  color: #4267b2;
+}
+
+.instagram:hover {
+  color: #bc2a8d;
+}
+
+.twitter:hover {
+  color: #00acee;
+}
+
+.youtube:hover {
+  color: #ff0000;
 }
 
 .policy {
@@ -717,6 +783,28 @@ body {
   line-height: 23px;
   color: #111827;
   text-decoration: none;
+  position: relative;
+}
+
+.policy__link:hover {
+  color: #111827;
+}
+
+.policy__link::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 2px;
+  background-color: #111827;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.policy__link:hover::after {
+  width: 100%;
 }
 
 .footer-text {
@@ -835,6 +923,13 @@ body {
   border-radius: 12px;
   padding: 3px 8px;
   cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.collection__type:hover {
+  background-color: #be123c;
+  color: #fff;
 }
 
 .collection__heart {
@@ -855,6 +950,12 @@ body {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.collection__heart:hover {
+  background-color: #ff0040;
 }
 
 .collection__heart .bx {
@@ -883,10 +984,22 @@ body {
 .collection__more {
   text-decoration: none;
   cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.collection__more .bx {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .collection__more:hover {
-  color: #be123c;
+  color: #ff0040;
+}
+
+.collection__more:hover .bx {
+  -webkit-transform: translateX(5px);
+          transform: translateX(5px);
 }
 
 .modal-dialog {
@@ -903,6 +1016,15 @@ body {
 .prev-btn .bx,
 .next-btn .bx {
   font-size: 30px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.prev-btn:hover .bx,
+.next-btn:hover .bx {
+  color: #be123c;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
 }
 
 .prev-btn {
@@ -936,7 +1058,7 @@ body {
 }
 
 .red {
-  color: red;
+  background-color: #be123c;
 }
 
 #find-it {
@@ -959,6 +1081,14 @@ body {
   border-radius: 6px;
   background-color: #be123c;
   color: #fff;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.click-me:hover {
+  background-color: transparent;
+  outline: 1px solid #fff;
+  color: #be123c;
 }
 
 .find-list {

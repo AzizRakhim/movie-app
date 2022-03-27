@@ -1,5 +1,5 @@
 ::-webkit-scrollbar{
-  width: 10px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track{
@@ -72,6 +72,25 @@
   border: none;
   background-color: transparent;
   margin-right: 27px;
+  position: relative;
+
+  &::after{
+    content: "";
+    width: 0;
+    height: 2px;
+    display: inline-block;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transition: all 0.3s ease;
+  }
+
+  &:hover{
+    &::after{
+      width: 100%;
+    }
+  }
 }
 
 .hero__menu{
@@ -84,10 +103,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease;
 
   .bx{
     font-size: 20px;
     color: #fff;
+  }
+
+  &:hover{
+    background-color: #ff0040;
   }
 }
 
@@ -124,7 +148,7 @@
   background-image: linear-gradient(to top, 
   rgba(0, 0, 0, 0.7),
   rgba(0, 0, 0, 0.4),
-  rgba(0, 0, 0, 0))
+  rgba(0, 0, 0, 0));
 }
 
 .hero__slide-title{
@@ -133,6 +157,9 @@
   line-height: 56px;
   color: #fff;
   margin-bottom: 16px;
+  width: 404px;
+  position: relative;
+  z-index: 10;
 }
 
 .hero__slide-text{
@@ -142,9 +169,12 @@
   color: #fff;
   width: 302px;
   margin-bottom: 16px;
+  position: relative;
+  z-index: 10;
 }
 
 .watch-btn{
+  width: 170px;
   background: #be123c;
   border-radius: 6px;
   border: none;
@@ -154,11 +184,21 @@
   line-height: 24px;
   text-transform: uppercase;
   color: #fff;
-
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  transition: all 0.3s ease;
 
   .bx{
     margin-right: 8px;
     font-size: 16px;
+  }
+
+  &:hover{
+    color: #fff;
+    background-color: transparent;
+    outline: 1px solid #fff;
   }
 }
 
@@ -199,6 +239,12 @@
     color: #9ca3af;
     text-align: right;
     opacity: 1;
+
+    &:hover{
+      color: #fff;
+      font-size: 18px;
+      opacity: 1;
+    }
   }
 }
 

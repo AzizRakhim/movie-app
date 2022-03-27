@@ -17,6 +17,31 @@
 .social__link{
   color: #111827;
   font-size: 25px;
+  transition: all 0.3s ease;
+}
+
+.facebook{
+  &:hover{
+    color: #4267b2;
+  }
+}
+
+.instagram{
+  &:hover{
+    color: #bc2a8d;
+  }
+}
+
+.twitter{
+  &:hover{
+    color: #00acee;
+  }
+}
+
+.youtube{
+  &:hover{
+    color: 	#ff0000;
+  }
 }
 
 .policy{
@@ -36,6 +61,29 @@
   line-height: 23px;
   color: #111827;
   text-decoration: none;
+  position: relative;
+
+  &:hover{
+    color: #111827;
+  }
+
+  &::after{
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 2px;
+    background-color: #111827;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transition: all 0.3s ease;
+  };
+
+  &:hover{
+    &::after{
+      width: 100%;
+    }
+  }
 }
 
 .footer-text{

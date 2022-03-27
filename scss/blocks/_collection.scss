@@ -101,6 +101,12 @@
   border-radius: 12px;
   padding: 3px 8px;
   cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover{
+    background-color: #be123c;
+    color: #fff;
+  }
 }
 
 .collection__heart{
@@ -114,6 +120,11 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover{
+    background-color: #ff0040;
+  }
 
   .bx{
     color: #fff;
@@ -144,9 +155,18 @@
 .collection__more{
   text-decoration: none;
   cursor: pointer;
+  transition: all 0.3s ease;
+
+  .bx{
+    transition: all 0.3s ease;
+  }
   
   &:hover{
-    color: #be123c;
+    color: #ff0040;
+
+    .bx{
+      transform: translateX(5px);
+    }
   }
 }
 
@@ -162,6 +182,14 @@
 
   .bx{
     font-size: 30px;
+    transition: all 0.3s ease;
+  }
+
+  &:hover{
+    .bx{
+      color: #be123c;
+      transform: scale(1.5);
+    }
   }
 }
 
@@ -192,7 +220,7 @@
 }
 
 .red{
-  color: red;
+  background-color: #be123c;
 }
 
 #find-it{
@@ -215,6 +243,13 @@
   border-radius: 6px;
   background-color: #be123c;
   color: #fff;
+  transition: all 0.3s ease;
+
+  &:hover{
+    background-color: transparent;
+    outline: 1px solid #fff;
+    color: #be123c
+  }
 }
 
 .find-list{
