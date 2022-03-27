@@ -370,6 +370,23 @@ body {
   margin: 0 auto;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #9ca3af;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #be123c;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ff0040;
+}
+
 #hero {
   background-color: transparent;
   min-height: 100vh;
@@ -410,6 +427,7 @@ body {
 .search-box:focus {
   border: none;
   outline: none;
+  background-color: transparent;
 }
 
 .search-box::-webkit-input-placeholder {
@@ -469,6 +487,10 @@ body {
   color: #fff;
 }
 
+.carousel-item {
+  position: relative;
+}
+
 .carousel-item img {
   height: 100vh;
 }
@@ -485,6 +507,18 @@ body {
 .carousel-caption .collection__imdb-rate,
 .carousel-caption .collection__rate-num {
   color: #fff;
+}
+
+.carousel-caption {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 350px;
+  padding-left: 190px;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.7)), color-stop(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
 }
 
 .hero__slide-title {
@@ -596,7 +630,6 @@ body {
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
   background-color: #fff;
-  border-radius: 16px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   list-style: none;
@@ -614,7 +647,24 @@ body {
   overflow-x: auto;
 }
 
-.x-btn {
+.search-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.search-list::-webkit-scrollbar-track {
+  background-color: #9ca3af;
+}
+
+.search-list::-webkit-scrollbar-thumb {
+  background-color: #be123c;
+  cursor: pointer;
+}
+
+.search-list::-webkit-scrollbar-thumb:hover {
+  background-color: #ff0040;
+}
+
+.escape-btn {
   border: none;
   background-color: transparent;
   padding-top: 0;
@@ -624,7 +674,7 @@ body {
   right: 20px;
 }
 
-.x-btn .bx {
+.escape-btn .bx {
   font-size: 30px;
   color: #be123c;
 }

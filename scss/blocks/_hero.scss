@@ -1,3 +1,20 @@
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background-color: #9ca3af;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: #be123c;
+  cursor: pointer;
+
+  &:hover{
+    background-color: #ff0040;
+  }
+}
+
 #hero{
   background-color: transparent;
   min-height: 100vh;
@@ -37,6 +54,7 @@
   &:focus{
     border: none;
     outline: none;
+    background-color: transparent;
   }
 
   &::placeholder{
@@ -74,6 +92,8 @@
 }
 
 .carousel-item{
+  position: relative;
+
   img{
     height: 100vh;
   }
@@ -91,6 +111,20 @@
   .collection__rate-num{
     color: #fff;
   }
+}
+
+.carousel-caption{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 350px;
+  padding-left: 190px;
+  background-image: linear-gradient(to top, 
+  rgba(0, 0, 0, 0.7),
+  rgba(0, 0, 0, 0.4),
+  rgba(0, 0, 0, 0))
 }
 
 .hero__slide-title{
@@ -197,7 +231,6 @@
   left: 50%;
   transform: translate(-50%);
   background-color: #fff;
-  border-radius: 16px;
   transition: all 0.3s ease;
   @include list-style;
   padding: 20px 0;
@@ -206,9 +239,26 @@
   display: flex;
   flex-wrap: wrap;
   overflow-x: auto;
+
+  &::-webkit-scrollbar{
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track{
+    background-color: #9ca3af;
+  }
+
+  &::-webkit-scrollbar-thumb{
+    background-color: #be123c;
+    cursor: pointer;
+
+    &:hover{
+      background-color: #ff0040;
+    }
+  }
 }
 
-.x-btn{
+.escape-btn{
   border: none;
   background-color: transparent;
   padding-top: 0;

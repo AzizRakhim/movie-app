@@ -171,6 +171,8 @@ hearts.forEach((el) => {
   });
 });
 
+let elCheck = elOffcanvas.querySelectorAll(".collection__heart");
+
 function wishlist(smth){
   movies.forEach((el) => {
     if(smth == el.imdbId){
@@ -223,7 +225,8 @@ function wishlist(smth){
       elOffcanvas.appendChild(elItem);
     }
   });
-}
+};
+
 
 const elSearchList = document.querySelector(".search-list");
 const elForm = document.querySelector(".search-form");
@@ -237,9 +240,9 @@ elForm.addEventListener("submit", (e) => {
   elSearchList.innerHTML = "";
 
   let elX = document.createElement("li");
-  elX.className = "w-100";
+  elX.className = "collection__item col-12";
   elX.innerHTML = `
-    <button class="x-btn">
+    <button class="escape-btn">
       <i class='bx bx-x-circle'></i>    
     </button>
   `;
@@ -320,7 +323,15 @@ elForm.addEventListener("submit", (e) => {
       elSearchList.style.top = `${100}px`;
       elSearchList.appendChild(elItem);
       c++;
+      
+      elInput.value = "";
     }
+    
+    let elEscapeBtn = document.querySelector(".escape-btn");
+
+    elEscapeBtn.addEventListener("click", () => {
+      elSearchList.style.top = '-80vh';
+    });
   });
 });
 
