@@ -109,6 +109,8 @@ function showIt(elArr, num) {
         elDocumentaryList.appendChild(elItem);
       } else if(num == 4){
         elFindList.appendChild(elItem);
+      } else if(num == 5){
+        elOffcanvas.appendChild(elItem);
       }
     } 
   });
@@ -174,62 +176,33 @@ hearts.forEach((el) => {
 });
 
 let elCheck = elOffcanvas.querySelectorAll(".collection__heart");
+let elONeTime = [];
 
 function wishlist(smth){
   movies.forEach((el) => {
     if(smth == el.imdbId){
-      let elItem = document.createElement("li");
-      elItem.className = "collection__item col-3";
-      elItem.innerHTML = `
-        <div class="collection__item-padding">
-        <div class="collection__img-holder">
-          <img class="featured-img" src="${el.youtubePosterMax}"
-          alt="movie">
-          <div class="collection__heart-holder">
-            <span class="collection__heart red me-auto">
-              <i class='bx bxs-heart'></i>
-            </span>
-          </div>
-        </div>
-        <div class="collection__info">
-          <div class="collection__year">
-            ${el.language},
-            <span class="collection__year-num">
-              ${el.year}
-            </span>
-          </div>
-          <h2 class="collection__title">
-            ${el.title}
-          </h2>
-          <div class="collection__rate-holder">
-            <div class="collection__imdb d-flex justify-content-between align-items-center">
-              <div class="collection__imdb-container d-flex align-items-center">
-                <a target="_blank" href="https://www.imdb.com/title/${el.imdbId}/">
-                  <img src="images/imbd.svg" alt="imdb">
-                </a>
-                <span class="collection__imdb-rate">
-                  86.0 / 100
-                </span>
-              </div>
-              <div class="collection__rate d-flex align-items-center">
-                <img src="images/tomato.svg" alt="tomato">
-                  <span class="collection__rate-num">
-                    ${el.imdbRating}
-                  </span>
-                  </div>
-                </div>
-              </div>
-              <div class="collection__category">
-                ${el.categories.join(", ")}
-              </div>
-            </div>
-          </div>  
-      `;
-
-      elOffcanvas.appendChild(elItem);
+      elONeTime.push(el);
     }
   });
+  oneTimePlease(elONeTime);
 };
+
+function oneTimePlease(itCame){
+  itCame.forEach((el) => {
+    let arrThree = itCame;
+    let topArrTwo = [];
+  
+    arrThree.forEach((item) => {
+      if(arrThree != "") topArrTwo.push(arrThree[0]);
+      arrThree = arrThree.filter((el) => {
+        return arrThree[0] != el;
+      })
+    })
+  
+    elOffcanvas.innerHTML = "";
+    showIt(topArrTwo, 5);
+  });
+}
 
 const elSearchList = document.querySelector(".search-list");
 const elForm = document.querySelector(".search-form");
