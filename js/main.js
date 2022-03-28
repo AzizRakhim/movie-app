@@ -2,7 +2,8 @@ const elFeatureList = document.querySelector(".feature");
 const elNewList = document.querySelector(".new");
 const elDocumentaryList = document.querySelector(".documentary");
 const elOffcanvas = document.querySelector(".offcanvas-list");
-const elFindList = document.querySelector(".find-list")
+const elFindList = document.querySelector(".find-list");
+let elRemoveArr = [];
 
 let elRatedMovies = [];
 let elNewMovies = [];
@@ -111,11 +112,12 @@ function showIt(elArr, num) {
         elFindList.appendChild(elItem);
       } else if(num == 5){
         elOffcanvas.appendChild(elItem);
+        let elHeartColored = elItem.querySelector(".collection__heart");
+        elHeartColored.classList.add("red");
       }
     } 
   });
 }
-
 
 const elLength = elFeatureList.querySelectorAll("li");
 const elLengthTwo = elNewList.querySelectorAll("li");
@@ -168,14 +170,12 @@ elPrev.forEach((el, index) => {
 });
 
 let hearts = document.querySelectorAll(".collection__heart");
-
 hearts.forEach((el) => {
   el.addEventListener("click", () => {
-    el.style.background = "#be123c";
+    el.classList.add("red");
   });
 });
 
-let elCheck = elOffcanvas.querySelectorAll(".collection__heart");
 let elONeTime = [];
 
 function wishlist(smth){
@@ -258,7 +258,7 @@ elForm.addEventListener("submit", (e) => {
                 </div>
               </div>
             </div>
-            <span class="collection__heart red-it" onclick="wishlist('${el.imdbId}')">
+            <span class="collection__heart" onclick="wishlist('${el.imdbId}')">
               <i class='bx bxs-heart'></i>
             </span>
           </div>
@@ -335,8 +335,12 @@ elExtendedForm.addEventListener("submit", (e) => {
     elFindList.innerHTML = "";
     let elTitle = el.title.toLowerCase();
     if(elTitle.indexOf(extendedSearch) != -1 && el.year >= startYear && el.year <= endYear){
+      let pleaseCount = 0;
       el.categories.forEach((item) => {
-        if(category == item){
+        if(category == "All" && pleaseCount == 0){
+          newCollection.push(el);
+          pleaseCount++;
+        } else if(category == item){
           newCollection.push(el);
         }
       })
@@ -368,7 +372,5 @@ topArr.forEach((el) => {
   elDatalist.appendChild(elOption);
 })
 
-
-
-
-
+let elInnerItems = elOffcanvas.querySelectorAll("li");
+console.log(elInnerItems);

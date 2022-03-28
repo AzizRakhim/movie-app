@@ -952,6 +952,8 @@ body {
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .collection__heart:hover {
