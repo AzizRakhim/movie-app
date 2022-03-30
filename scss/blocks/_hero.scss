@@ -285,23 +285,6 @@
   display: flex;
   flex-wrap: wrap;
   overflow-x: auto;
-
-  &::-webkit-scrollbar{
-    width: 10px;
-  }
-
-  &::-webkit-scrollbar-track{
-    background-color: #9ca3af;
-  }
-
-  &::-webkit-scrollbar-thumb{
-    background-color: #be123c;
-    cursor: pointer;
-
-    &:hover{
-      background-color: #ff0040;
-    }
-  }
 }
 
 .escape-btn{

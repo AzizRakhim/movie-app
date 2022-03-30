@@ -1,3 +1,5 @@
+// DISPLAYING THREE CATEGORISED SLIDES
+
 const elFeatureList = document.querySelector(".feature");
 const elNewList = document.querySelector(".new");
 const elDocumentaryList = document.querySelector(".documentary");
@@ -9,17 +11,24 @@ let elRatedMovies = [];
 let elNewMovies = [];
 let elDocumentary = [];
 
+let tenCount = 0;
+let tenCountTwo = 0;
+let tenCountThree = 0;
+
 movies.forEach((el) => {
   let elRate = 8.8;
 
-  if (el.imdbRating >= elRate) {
+  if (el.imdbRating >= elRate && tenCount < 10) {
     elRatedMovies.push(el);
+    tenCount++;
   };
-  if (el.year == 2018) {
+  if (el.year == 2018 && tenCountTwo < 10) {
     elNewMovies.push(el);
+    tenCountTwo++;
   };
-  if (el.categories == "Documentary") {
+  if (el.categories == "Documentary" && tenCountThree < 10) {
     elDocumentary.push(el);
+    tenCountThree++;
   }
 });
 
@@ -94,7 +103,7 @@ function showIt(elArr, num) {
                 </div>
               </div>
               <div class="collection__category">
-                ${el.categories.join(", ")}
+                ${el.categories}
               </div>
             </div>
           </div>  
@@ -114,60 +123,117 @@ function showIt(elArr, num) {
         elOffcanvas.appendChild(elItem);
         let elHeartColored = elItem.querySelector(".collection__heart");
         elHeartColored.classList.add("red");
+      } else if(num == 6){
+        elSearchList.appendChild(elItem);
       }
     } 
   });
 }
 
-const elLength = elFeatureList.querySelectorAll("li");
-const elLengthTwo = elNewList.querySelectorAll("li");
-const elLengthThree = elDocumentaryList.querySelectorAll("li");
+// WORKING WITH THE SLIDERS
+
+let elLength = elFeatureList.querySelectorAll("li");
+let elLengthTwo = elNewList.querySelectorAll("li");
+let elLengthThree = elDocumentaryList.querySelectorAll("li");
 
 let idx = 0;
+let idxTwo = 0;
+let idxThree = 0;
+
+let elFeatureArr = [];
+let elNewArr = [];
+let elDocumentaryArr = [];
+
+elLength.forEach((el) => {
+  elFeatureArr.push(el);
+});
+
+elLengthTwo.forEach((el) => {
+  elNewArr.push(el);
+});
+
+elLengthThree.forEach((el) => {
+  elDocumentaryArr.push(el);
+}); 
 
 let elPrev = document.querySelectorAll(".prev-btn");
 let elNext = document.querySelectorAll(".next-btn");
 
-function changeImage(index) {
-  if(index == 0){
-    if(idx > elLength.length - 4){
-      idx = 0;
-    } else if(idx < 0){
-      idx = elLength.length - 4;
-    }
-    elFeatureList.style.transform = `translate(${-idx * 25}%)`;
-  } else if(index == 1){
-    if(idx > elLengthTwo.length - 4){
-      idx = 0;
-    } else if(idx < 0){
-      idx = elLengthTwo.length - 4;
-    }
-    elNewList.style.transform = `translate(${-idx * 25}%)`;
-  } else if(index == 2){
-    if(idx > elLengthThree.length - 4){
-      idx = 0;
-    } else if(idx < 0){
-      idx = elLengthThree.length - 4;
-    }
-    elDocumentaryList.style.transform = `translate(${-idx * 25}%)`;
-  }
-}
-
 elNext.forEach((el, index) => {
-  el.addEventListener("click", function change() {
-    idx++;
-  
+  el.addEventListener("click", () => {
     changeImage(index);
   });
 });
 
 elPrev.forEach((el, index) => {
-  el.addEventListener("click", function change() {
-    idx--;
-  
-    changeImage(index);
+  el.addEventListener("click", () => {
+    prevImg(index);
   });
 });
+
+function changeImage(index) {
+  if(index == 0){
+    elFeatureArr[elFeatureArr.length] = elFeatureArr[idx];
+    idx++;
+    elLength = elFeatureArr;
+    displayIt(elLength, 1);
+  } else if(index == 1){
+    elNewArr[elNewArr.length] = elNewArr[idxTwo];
+    idxTwo++;
+    elLengthTwo = elNewArr;
+    displayIt(elLengthTwo, 2);
+  } else if(index == 2){
+    elDocumentaryArr[elDocumentaryArr.length] = elDocumentaryArr[idxThree];
+    idxThree++;
+    elLengthThree = elDocumentaryArr;
+    displayIt(elLengthThree, 3);
+  }
+}
+
+function prevImg(index) {
+  if(index == 0){
+    let elCorrect = [];
+    elCorrect.push(elLength[elLength.length - 1]);
+
+    for(let i = 0; i < elLength.length - 1; i++){
+      elCorrect.push(elLength[i]);
+    }
+    elLength = elCorrect;
+    displayIt(elLength, 1);
+  } else if(index == 1){
+    let elCorrect = [];
+    elCorrect.push(elLengthTwo[elLengthTwo.length - 1]);
+
+    for(let i = 0; i < elLengthTwo.length - 1; i++){
+      elCorrect.push(elLengthTwo[i]);
+    }
+    elLengthTwo = elCorrect;
+    displayIt(elLengthTwo, 2);
+  } else if(index == 2){
+    let elCorrect = [];
+    elCorrect.push(elLengthThree[elLengthThree.length - 1]);
+
+    for(let i = 0; i < elLengthThree.length - 1; i++){
+      elCorrect.push(elLengthThree[i]);
+    }
+    elLengthThree = elCorrect;
+    displayIt(elLengthThree, 3);
+  }
+}
+
+function displayIt(elArr, num){
+  elArr.forEach((el) => {
+    if(num == 1){
+      elFeatureList.appendChild(el);
+    } else if(num == 2){
+      elNewList.appendChild(el);
+    } else{
+      elDocumentaryList.appendChild(el);
+    }
+  });
+}
+
+// WORKING WITH THE WISHLIST
 
 let hearts = document.querySelectorAll(".collection__heart");
 hearts.forEach((el) => {
@@ -204,6 +270,8 @@ function oneTimePlease(itCame){
   });
 }
 
+// WORKING WITH THE HERO SEARCH
+
 const elSearchList = document.querySelector(".search-list");
 const elForm = document.querySelector(".search-form");
 let elInput = document.querySelector("#search");
@@ -215,103 +283,21 @@ elForm.addEventListener("submit", (e) => {
 
   elSearchList.innerHTML = "";
 
-  let elX = document.createElement("li");
-  elX.className = "collection__item col-12";
-  elX.innerHTML = `
-    <button class="escape-btn">
-      <i class='bx bx-x-circle'></i>    
-    </button>
-  `;
-  elSearchList.appendChild(elX);
-
   let c = 0;
+  let elSearchItArr = [];
   let elText = elInput.value.toLowerCase();
   movies.forEach((el) => {
     let movieName = el.title.toLowerCase();
     if(movieName.indexOf(elText) != -1 && c < 10){
-      let elItem = document.createElement("li");
-      elItem.className = "collection__item col-3";
-      elItem.innerHTML = `
-        <div class="collection__item-padding">
-        <div class="collection__img-holder">
-          <img class="featured-img" src="${el.youtubePosterMax}"
-          alt="movie">
-          <div class="collection__heart-holder">
-            <span class="collection__type" data-bs-toggle="modal" data-bs-target="#staticBackdrop${c}">
-              MORE 
-            </span>
-            <div class="modal fade" id="staticBackdrop${c}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">${el.title}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body d-flex">
-                    <div class="i-frame-part col-6">
-                      <iframe width="100%" height="408" src="https://www.youtube.com/embed/${el.youtubeId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="desc-part col-6 ps-3">
-                      ${el.summary}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <span class="collection__heart" onclick="wishlist('${el.imdbId}')">
-              <i class='bx bxs-heart'></i>
-            </span>
-          </div>
-        </div>
-        <div class="collection__info">
-          <div class="collection__year">
-            ${el.language},
-            <span class="collection__year-num">
-              ${el.year}
-            </span>
-          </div>
-          <h2 class="collection__title">
-            ${el.title}
-          </h2>
-          <div class="collection__rate-holder">
-            <div class="collection__imdb d-flex justify-content-between align-items-center">
-              <div class="collection__imdb-container d-flex align-items-center">
-                <a target="_blank" href="https://www.imdb.com/title/${el.imdbId}/">
-                  <img src="images/imbd.svg" alt="imdb">
-                </a>
-                <span class="collection__imdb-rate">
-                  86.0 / 100
-                </span>
-              </div>
-              <div class="collection__rate d-flex align-items-center">
-                <img src="images/tomato.svg" alt="tomato">
-                  <span class="collection__rate-num">
-                    ${el.imdbRating}
-                  </span>
-                  </div>
-                </div>
-              </div>
-              <div class="collection__category">
-                ${el.categories.join(", ")}
-              </div>
-            </div>
-          </div>  
-      `;
-
+      elSearchItArr.push(el);
       elSearchList.style.top = `${100}px`;
-      elSearchList.appendChild(elItem);
       c++;
-      
-      elInput.value = "";
     }
-    
-    let elEscapeBtn = document.querySelector(".escape-btn");
-
-    elEscapeBtn.addEventListener("click", () => {
-      elSearchList.style.top = '-80vh';
-    });
   });
+  showIt(elSearchItArr, 6);
 });
+
+// WORKING WITH THE FILTERED SEARCH
 
 const elExtendedForm = document.querySelector(".extended-search");
 const elExtendedSearch = document.querySelector("#movie-name");
@@ -370,7 +356,4 @@ topArr.forEach((el) => {
   let elOption = document.createElement("option");
   elOption.innerText = el;
   elDatalist.appendChild(elOption);
-})
-
-let elInnerItems = elOffcanvas.querySelectorAll("li");
-console.log(elInnerItems);
+});
